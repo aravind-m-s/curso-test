@@ -462,10 +462,10 @@ class ChipCard extends StatelessWidget {
             ),
           ),
           child: Padding(
-            padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 18),
+            padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 18),
             child: Text(
               two,
-              style: TextStyle(fontWeight: FontWeight.w600),
+              style: const TextStyle(fontWeight: FontWeight.w600),
             ),
           ),
         ),
@@ -477,10 +477,10 @@ class ChipCard extends StatelessWidget {
             ),
           ),
           child: Padding(
-            padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 18),
+            padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 18),
             child: Text(
               three,
-              style: TextStyle(fontWeight: FontWeight.w600),
+              style: const TextStyle(fontWeight: FontWeight.w600),
             ),
           ),
         )

@@ -1,5 +1,4 @@
 import 'package:coding_test/view/screen_explore/screen_explore.dart';
-import 'package:coding_test/view/screen_topic/screen_topic.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: ScreenTopic(),
+      home: ScreenExplore(),
     );
   }
 }

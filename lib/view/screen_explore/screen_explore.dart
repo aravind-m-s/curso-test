@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:coding_test/core/constants.dart';
 import 'package:coding_test/view/screen_see_all/screen_see_all.dart';
+import 'package:coding_test/view/screen_topic/screen_topic.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg_icons/flutter_svg_icons.dart';
 
@@ -99,57 +100,64 @@ class PopularCourses extends StatelessWidget {
             maxHeight: 300,
             child: ListView.separated(
               scrollDirection: Axis.horizontal,
-              itemBuilder: (context, index) => Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const PCGradientContainer(),
-                  kHeight10,
-                  Text(
-                    titles[index],
-                    style: const TextStyle(
-                      fontWeight: FontWeight.w600,
-                      fontSize: 16,
-                      color: Color(0xFF242B42),
+              itemBuilder: (context, index) => GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const ScreenTopic(),
+                  ));
+                },
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const PCGradientContainer(),
+                    kHeight10,
+                    Text(
+                      titles[index],
+                      style: const TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 16,
+                        color: Color(0xFF242B42),
+                      ),
                     ),
-                  ),
-                  kHeight10,
-                  Text(
-                    authors[index],
-                    style: const TextStyle(
-                      fontWeight: FontWeight.w400,
-                      color: Color(0xFF7E8CA0),
+                    kHeight10,
+                    Text(
+                      authors[index],
+                      style: const TextStyle(
+                        fontWeight: FontWeight.w400,
+                        color: Color(0xFF7E8CA0),
+                      ),
                     ),
-                  ),
-                  kHeight10,
-                  index == 1
-                      ? Text(
-                          prices[index],
-                          style: const TextStyle(
-                            fontWeight: FontWeight.w600,
-                            color: Color(0xFF4E74FA),
+                    kHeight10,
+                    index == 1
+                        ? Text(
+                            prices[index],
+                            style: const TextStyle(
+                              fontWeight: FontWeight.w600,
+                              color: Color(0xFF4E74FA),
+                            ),
+                          )
+                        : Row(
+                            children: [
+                              Text(
+                                prices[index],
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  color: Color(0xFF4E74FA),
+                                ),
+                              ),
+                              kWidth10,
+                              const Text(
+                                'IDR 219.000',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w400,
+                                  color: Color(0xFF7E8CA0),
+                                  decoration: TextDecoration.lineThrough,
+                                ),
+                              ),
+                            ],
                           ),
-                        )
-                      : Row(
-                          children: [
-                            Text(
-                              prices[index],
-                              style: const TextStyle(
-                                fontWeight: FontWeight.w600,
-                                color: Color(0xFF4E74FA),
-                              ),
-                            ),
-                            kWidth10,
-                            const Text(
-                              'IDR 219.000',
-                              style: TextStyle(
-                                fontWeight: FontWeight.w400,
-                                color: Color(0xFF7E8CA0),
-                                decoration: TextDecoration.lineThrough,
-                              ),
-                            ),
-                          ],
-                        ),
-                ],
+                  ],
+                ),
               ),
               separatorBuilder: (context, index) => kWidth30,
               itemCount: 2,
